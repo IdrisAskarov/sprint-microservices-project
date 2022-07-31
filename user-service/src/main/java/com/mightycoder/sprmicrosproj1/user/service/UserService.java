@@ -14,8 +14,8 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 public class UserService {
 
-    @Value("${department-service}")
-    private String departmentServiceURL;
+    @Value("${api-gateway}")
+    private String apiGatewayURL;
 
     private final UserRepository userRepository;
 
@@ -38,7 +38,7 @@ public class UserService {
                 new RuntimeException("User with id " + userId + " is not found"));
 
         var department = restTemplate
-                .getForObject(departmentServiceURL + "department/" + user.getDepartmentId(), Department.class);
+                .getForObject(apiGatewayURL + "department/" + user.getDepartmentId(), Department.class);
 
         return new ResponseTemplateVO(user, department);
     }
