@@ -16,7 +16,7 @@ public class DepartmentController {
 
     @PostMapping("/")
     public Department saveDepartment(@RequestBody Department department) {
-        log.info("Inside saveDepartment method o DepartmentController");
+        log.info("Inside saveDepartment method of DepartmentController");
         return departmentService.saveDepartment(department);
     }
 
